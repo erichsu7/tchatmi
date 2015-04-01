@@ -1,0 +1,24 @@
+{
+  "name": "tchatmi",
+  "version": "1.0.0",
+  "description": "A simple chat room app built with node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erichsu7/tchatmi.git"
+  },
+  "author": "Eric Hsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erichsu7/tchatmi/issues"
+  },
+  "homepage": "https://github.com/erichsu7/tchatmi",
+  "dependencies": {
+    "socket.io": "1.0.x",
+    "mime": "~1.2.7",
+    "node-static": "^0.7.4"
+  }
+}
