@@ -32,7 +32,7 @@
 
   ChatUI.prototype.handleMessage = function () {
     this.chat.socket.on("message", function (message) {
-      this.appendMessage(message);
+      this.appendMessage(message.text);
     }.bind(this));
   };
 })();
