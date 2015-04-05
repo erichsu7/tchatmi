@@ -5,10 +5,15 @@
 
   var ChatUI = tchatmi.ChatUI = function () {
     var socket = io();
-    this.chat = new Chat(socket);
-    this.messageForm = $("#messageForm");
-    this.messageFormInput = $("#message-form-input");
-    this.chatMessagesList = $("#chat-messages-list");
+    this.chat = new tchatmi.Chat(socket);
+
+    $(document).on("ready", function (event) {
+      this.messageForm = $("#message-form");
+      this.messageFormInput = $("#message-form-input");
+      this.chatMessagesList = $("#chat-messages-list");
+      this.handleSubmit();
+      this.handleMessage();
+    }.bind(this))
   }
 
   ChatUI.prototype.handleSubmit = function () {
@@ -16,8 +21,7 @@
       event.preventDefault();
       var message = this.messageFormInput.val();
       this.chat.sendMessage(message);
-      this.appendMessage(message);
-    })
+    }.bind(this));
   };
 
   ChatUI.prototype.appendMessage = function (message) {
@@ -26,4 +30,9 @@
     this.chatMessagesList.append($li);
   };
 
+  ChatUI.prototype.handleMessage = function () {
+    this.chat.socket.on("message", function (message) {
+      this.appendMessage(message);
+    }.bind(this));
+  };
 })();

@@ -3,11 +3,18 @@
   <head>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/chat.js"></script>
+    <script src="/javascripts/chat_ui.js"></script>
+    <script>
+      (function () {
+        var chatUI = new tchatmi.ChatUI();
+      })();
+    </script>
     <title>tchatmi</title>
   </head>
   <body>
-    <main class="chat-messages-container">
-      <ul class="chat-messages-list">
+    <main id="chat-messages-container">
+      <ul id="chat-messages-list">
       </ul>
     </main>
 
