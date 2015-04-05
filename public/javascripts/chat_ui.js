@@ -13,6 +13,7 @@
       this.chatMessagesList = $("#chat-messages-list");
       this.handleSubmit();
       this.handleMessage();
+      this.handleNicknameChange();
     }.bind(this))
   }
 
@@ -20,7 +21,11 @@
     this.messageForm.on("submit", function (event) {
       event.preventDefault();
       var message = this.messageFormInput.val();
-      this.chat.sendMessage(message);
+      if (message[0] === "/") {
+        this.chat.processCommand(message.slice(1));
+      } else {
+        this.chat.sendMessage(message);
+      }
     }.bind(this));
   };
 
@@ -32,8 +37,13 @@
 
   ChatUI.prototype.handleMessage = function () {
     this.chat.socket.on("message", function (message) {
-      this.appendMessage(message.text)
-      // this.appendMessage(message.nickname + ": " + message.text);
+      this.appendMessage(message.text);
+    }.bind(this));
+  };
+
+  ChatUI.prototype.handleNicknameChange = function () {
+    this.chat.socket.on("nicknameChangeResult", function (result) {
+      this.appendMessage(result.message);
     }.bind(this));
   };
 })();
