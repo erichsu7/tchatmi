@@ -1,11 +1,15 @@
-function Chat (socket) {
-  this.socket = socket;
-};
+(function () {
+  if (typeof tchatmi === "undefined") {
+    window.tchatmi = {};
+  }
 
-Chat.prototype.sendMessage = function (message) {
-  this.socket.emit("message", {
-    message: message
-  })
-};
+  var Chat = tchatmi.Chat = function (socket) {
+    this.socket = socket;
+  }
 
-module.exports = Chat;
+  Chat.prototype.sendMessage = function (message) {
+    this.socket.emit("message", {
+      message: message
+    })
+  };
+})();
