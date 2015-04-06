@@ -3,9 +3,8 @@
     window.tchatmi = {};
   }
 
-  var ChatUI = tchatmi.ChatUI = function () {
-    var socket = io();
-    this.chat = new tchatmi.Chat(socket);
+  var ChatUI = tchatmi.ChatUI = function (chat) {
+    this.chat = chat;
 
     $(document).on("ready", function (event) {
       this.messageForm = $("#message-form");
@@ -37,6 +36,11 @@
 
   ChatUI.prototype.handleMessage = function () {
     this.chat.socket.on("message", function (message) {
+      // if (message.nickname) {
+      //   this.appendMessage(message.nickname + ": " + message.text);
+      // } else {
+      //   this.appendMessage(message.text);
+      // }
       this.appendMessage(message.text);
     }.bind(this));
   };

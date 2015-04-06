@@ -17,10 +17,16 @@
     var commands = text.split(" ");
 
     if (commands[0] === "nick") {
-      this.socket.emit("nicknameChangeRequest", commands[1])
+      if (commands[1]) {
+        this.socket.emit("nicknameChangeRequest", commands[1])
+      } else {
+        this.socket.emit("errorMessage", {
+          text: "/nick requires a nickname, i.e. /nick i<3kittens."
+        })
+      }
     } else {
-      this.socket.emit("message", {
-        text: text + " is not a recognized command."
+      this.socket.emit("errorMessage", {
+        text: "/" + text + " is not a recognized command."
       })
     }
   };

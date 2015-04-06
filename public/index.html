@@ -7,7 +7,9 @@
     <script src="/javascripts/chat_ui.js"></script>
     <script>
       (function () {
-        var chatUI = new tchatmi.ChatUI();
+        var socket = io();
+        var chat = new tchatmi.Chat(socket);
+        var chatUI = new tchatmi.ChatUI(chat);
       })();
     </script>
     <title>tchatmi</title>
