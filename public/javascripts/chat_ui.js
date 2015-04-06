@@ -62,9 +62,10 @@
   };
 
   ChatUI.prototype.handleRoomChange = function () {
-    this.chat.socket.on("roomList", function (data) {
-      this.roomName.text(data["roomName"]);
-      data["roomRoster"].forEach(function (nickname) {
+    this.chat.socket.on("roomList", function (roomRosters) {
+      this.roomName.text(this.chat.room);
+      this.roomRoster.text("");
+      roomRosters[this.chat.room].forEach(function (nickname) {
         this.appendNickname(nickname);
       }.bind(this))
     }.bind(this))

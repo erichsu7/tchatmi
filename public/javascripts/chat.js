@@ -5,6 +5,7 @@
 
   var Chat = tchatmi.Chat = function (socket) {
     this.socket = socket;
+    this.room = "lobby";
   }
 
   Chat.prototype.sendMessage = function (text) {
@@ -26,6 +27,7 @@
       }
     } else if (commands[0] === "join") {
       if (commands[1]) {
+        this.room = commands[1];
         this.socket.emit("roomChangeRequest", commands[1])
       } else {
         this.socket.emit("errorMessage", {
