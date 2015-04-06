@@ -25,6 +25,7 @@
       } else {
         this.chat.sendMessage(message);
       }
+      this.messageFormInput.val("");
     }.bind(this));
   };
 
@@ -36,12 +37,11 @@
 
   ChatUI.prototype.handleMessage = function () {
     this.chat.socket.on("message", function (message) {
-      // if (message.nickname) {
-      //   this.appendMessage(message.nickname + ": " + message.text);
-      // } else {
-      //   this.appendMessage(message.text);
-      // }
-      this.appendMessage(message.text);
+      if (message.nickname) {
+        this.appendMessage(message.nickname + ": " + message.text);
+      } else {
+        this.appendMessage(message.text);
+      }
     }.bind(this));
   };
 
