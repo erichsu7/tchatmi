@@ -35,8 +35,16 @@
 
   ChatUI.prototype.appendMessage = function (message, nickname) {
     var $li = $("<li class=\"list-group-item\">");
-    if (nickname.length > 0) { nickname = nickname + " " };
-    $li.text(nickname + message);
+    var $span = $("<span class=\"text-muted\">");
+    $span.text(message);
+
+    if (nickname && nickname.length > 0) {
+      var $strong = $("<strong>");
+      $strong.text(nickname + " ");
+      $li.append($strong);
+    }
+
+    $li.append($span);
     this.chatMessagesList.append($li);
   };
 

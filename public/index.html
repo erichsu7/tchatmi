@@ -6,6 +6,7 @@
     <script src="/javascripts/chat.js"></script>
     <script src="/javascripts/chat_ui.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/application.css">
     <script>
       (function () {
         var socket = io();
@@ -17,23 +18,19 @@
   </head>
   <body>
 
-    <div class="row">
-      <main id="chat-messages-container" class="col-md-9">
-        <ul id="chat-messages-list" class="list-group">
-        </ul>
-      </main>
+    <main id="chat-messages-container" class="col-md-9">
+      <ul id="chat-messages-list" class="list-group">
+      </ul>
+    </main>
 
-      <aside id="room-roster-container" class="col-md-3">
-        <h1 id="room-name"></h1>
-        <div id="room-roster">
-        </div>
-      </aside>
-    </div>
+    <aside id="room-roster-container" class="col-md-3">
+      <h1 id="room-name"></h1>
+      <div id="room-roster">
+      </div>
+    </aside>
 
-    <div class="row">
-      <form id="message-form"  class="col-md-12">
-        <input type="text" id="message-form-input" placeholder="Type here and press enter to send." value="">
-      </form>
-    </div>
+    <form id="message-form"  class="col-md-12">
+      <input type="text" id="message-form-input" class="col-md-12" placeholder="Type here and press enter to send." value="">
+    </form>
   </body>
 </html>
