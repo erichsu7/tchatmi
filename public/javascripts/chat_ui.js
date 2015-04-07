@@ -46,7 +46,12 @@
 
     $li.append($span);
     this.chatMessagesList.append($li);
+    this.scrollMessages();
   };
+
+  ChatUI.prototype.scrollMessages = function () {
+    this.chatMessagesList.scrollTop(this.chatMessagesList[0].scrollHeight);
+  }
 
   ChatUI.prototype.appendNickname = function (nickname) {
     var $div = $("<div class=\"room-roster-item\">");
