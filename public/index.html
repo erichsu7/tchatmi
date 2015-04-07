@@ -2,10 +2,11 @@
 <html>
   <head>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/chat.js"></script>
     <script src="/javascripts/chat_ui.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/application.css">
     <script>
       (function () {
@@ -17,6 +18,7 @@
     <title>tchatmi</title>
   </head>
   <body>
+    <h1 id="header-logo">t<span id="header-logo-chat">chat</span>mi</h1>
 
     <main id="chat-messages-container" class="col-md-9">
       <ul id="chat-messages-list" class="list-group">
@@ -24,8 +26,14 @@
     </main>
 
     <aside id="room-roster-container" class="col-md-3">
-      <h1 id="room-name"></h1>
-      <div id="room-roster">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 id= "room-name" class="panel-title"></h3>
+        </div>
+        <div class="panel-body">
+          <div id="room-roster">
+          </div>
+        </div>
       </div>
     </aside>
 

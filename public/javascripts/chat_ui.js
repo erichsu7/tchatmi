@@ -49,9 +49,9 @@
   };
 
   ChatUI.prototype.appendNickname = function (nickname) {
-    var $li = $("<li class=\"room-roster-item\">");
-    $li.text(nickname);
-    this.roomRoster.append($li);
+    var $div = $("<div class=\"room-roster-item\">");
+    $div.text(nickname);
+    this.roomRoster.append($div);
   }
 
   ChatUI.prototype.handleMessage = function () {

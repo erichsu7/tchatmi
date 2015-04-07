@@ -2,8 +2,24 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  box-sizing: border-box;
-  padding: 40px;
+  padding: 60px 40px;
+  background-color: #333;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#header-logo {
+  position: absolute;
+  top: -10px;
+  left: 55px;
+  color: #aaa;
+  font-family: "Poiret One";
+}
+
+#header-logo-chat {
+  color: #fff;
 }
 
 #chat-messages-container,
@@ -11,7 +27,19 @@ body {
     height: 90%;
   }
 
+#room-roster-container > div {
+  height: 100%;
+}
+
 #chat-messages-list {
   height: 100%;
   overflow: auto;
+}
+
+#chat-messages-list {
+  background-color: #fff;
+}
+
+#message-form {
+  margin-top: 30px;
 }
