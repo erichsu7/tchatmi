@@ -5,6 +5,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/chat.js"></script>
     <script src="/javascripts/chat_ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script>
       (function () {
         var socket = io();
@@ -15,20 +16,24 @@
     <title>tchatmi</title>
   </head>
   <body>
-    <main id="chat-messages-container">
-      <ul id="chat-messages-list">
-      </ul>
-    </main>
 
-    <form id="message-form" action="" method="post">
-      <input type="text" id="message-form-input" name="" value="">
-      <input type="submit" name="" value="Enter">
-    </form>
+    <div class="row">
+      <main id="chat-messages-container" class="col-md-9">
+        <ul id="chat-messages-list" class="list-group">
+        </ul>
+      </main>
 
-    <aside id="room-roster-container">
-      <h1 id="room-name"></h1>
-      <ul id="room-roster">
-      </ul>
-    </aside>
+      <aside id="room-roster-container" class="col-md-3">
+        <h1 id="room-name"></h1>
+        <div id="room-roster">
+        </div>
+      </aside>
+    </div>
+
+    <div class="row">
+      <form id="message-form"  class="col-md-12">
+        <input type="text" id="message-form-input" placeholder="Type here and press enter to send." value="">
+      </form>
+    </div>
   </body>
 </html>

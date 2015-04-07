@@ -33,9 +33,10 @@
     }.bind(this));
   };
 
-  ChatUI.prototype.appendMessage = function (message) {
-    var $li = $("<li class=\"chat-message\">");
-    $li.text(message);
+  ChatUI.prototype.appendMessage = function (message, nickname) {
+    var $li = $("<li class=\"list-group-item\">");
+    if (nickname.length > 0) { nickname = nickname + " " };
+    $li.text(nickname + message);
     this.chatMessagesList.append($li);
   };
 
@@ -47,11 +48,8 @@
 
   ChatUI.prototype.handleMessage = function () {
     this.chat.socket.on("message", function (message) {
-      if (message.nickname) {
-        this.appendMessage(message.nickname + ": " + message.text);
-      } else {
-        this.appendMessage(message.text);
-      }
+      var nickname = message.nickname || "";
+      this.appendMessage(message.text, nickname);
     }.bind(this));
   };
 
