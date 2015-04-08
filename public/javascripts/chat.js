@@ -34,6 +34,8 @@
           text: "/join requires a room name, i.e. /join kittenluvvers."
         })
       }
+    } else if (commands[0] === "help") {
+      this.socket.emit("instructions");
     } else {
       this.socket.emit("errorMessage", {
         text: "/" + text + " is not a recognized command."
