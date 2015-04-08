@@ -24,6 +24,7 @@
     this.messageForm.on("submit", function (event) {
       event.preventDefault();
       var message = this.messageFormInput.val();
+      if (message === "") { return }
       if (message[0] === "/") {
         this.chat.processCommand(message.slice(1));
       } else {
