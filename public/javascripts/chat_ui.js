@@ -37,7 +37,7 @@
   ChatUI.prototype.appendMessage = function (message, nickname) {
     var $li = $("<li class=\"list-group-item\">");
     var $span = $("<span class=\"text-muted\">");
-    $span.text(message);
+    $span.html(message);
 
     if (nickname && nickname.length > 0) {
       var $strong = $("<strong>");

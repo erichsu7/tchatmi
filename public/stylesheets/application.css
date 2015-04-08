@@ -43,3 +43,7 @@ ul {
 #message-form {
   margin-top: 30px;
 }
+
+.text-muted {
+  white-space: pre;
+}
