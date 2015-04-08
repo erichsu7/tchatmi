@@ -17,7 +17,7 @@
   Chat.prototype.processCommand = function (text) {
     var commands = text.split(" ");
 
-    if (commands[0] === "nick") {
+    if (commands[0] === "name") {
       if (commands[1]) {
         this.socket.emit("nicknameChangeRequest", commands[1])
       } else {
