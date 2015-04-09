@@ -11,7 +11,7 @@ tchatmi ('chat-me') is a lightweight chat room application.
 tchatmi's chat server is built on the **Node.js** framework, and the client UI relies on **jQuery** DOM manipulation and **Socket.IO** communication.
 
 ### Server-side
-Node.js's asynchronous event loop is well-suited for a chat room with multiple connected users. Using Socket.IO, the server listens for incoming events across all sockets, processes the incoming data, and emits a message back to the appropriate clients. Because the server is simply accepting messages and relaying them back out to the clients, there is no need for much overhead, making the app quick and efficient.
+Node.js' asynchronous event loop is well-suited for a chat room with multiple connected users. Using Socket.IO, the server listens for incoming events across all sockets, processes the incoming data, and emits a message back to the appropriate clients. Because the server is simply accepting messages and relaying them back out to the clients, there is no need for much overhead, making the app quick and efficient.
 
 ### Client-side
 The Socket.IO client-side library establishes communication to the server by emitting events and passing data. When a user submits a message input, a "message" event is triggered along with the text data, which the server handles. After the server sends back a response, the UI is updated to reflect new messages, room changes, and new users with jQuery DOM manipulation.
